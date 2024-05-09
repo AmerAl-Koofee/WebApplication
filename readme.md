@@ -13,7 +13,7 @@ Data Seeding: Random employee data can be generated using the provided script.
 Installation:
 
 1. Clone the repository:
-   git clone https://github.com/AmerAl-Koofee/Aplication.git
+   git clone https://github.com/AmerAl-Koofee/WebApplication
 
 2. Install dependencies:
    pip install -r requirements.txt
