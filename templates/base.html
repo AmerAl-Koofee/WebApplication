@@ -1,0 +1,41 @@
+{% from "_macros.html" import nav_link with context%}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    {% block head %}
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+      href="{{ url_for('static', filename='script.js') }}"
+    />
+    <link
+      href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>{% block title %}{% endblock %}</title>
+    {% endblock %}
+  </head>
+  <body>
+    <div>
+      <div class="nav-bar">
+        {% if current_user.is_authenticated %}
+        {{nav_link('home_page', 'Home')}}
+        {{nav_link('users', 'Users')}}
+        {{nav_link('create_user', 'Register')}} 
+        {{nav_link('logout', 'LogOut')}} 
+        {% else %} 
+        {{nav_link('login', 'LogIn')}} 
+        {% endif %}
+      </div>
+      <div>
+        {% block content %} 
+        {% endblock %}
+      </div>
+    </div>
+    <footer class="site-footer">
+      <p>© 2024 Amer Al-Koofee</p>
+    </footer>
+  </body>
+</html>

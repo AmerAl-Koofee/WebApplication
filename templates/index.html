@@ -1,0 +1,38 @@
+{% extends "base.html"%} 
+{% block title %} Homepage {% endblock %} 
+{% block content %}
+
+<div class="container">
+  <div class="page">
+    <div class="page_modify_0">
+      <div class="welcome_page">
+        <h1>Welcome</h1>
+      </div>
+      <div class="container-home-page-pic">
+        <img
+          src="{{ url_for('static', filename='AI_Pic.jpg') }}"
+          alt="Example Image"
+          class="home-page-pic"
+        />
+      </div>
+      <div class="container-home-page-p">
+        <p class="p">
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti
+          quasi reprehenderit ad in officia nobis et, saepe ipsam accusantium
+          perferendis soluta unde quas illum recusandae sed aspernatur ducimus
+          qui a. Omnis repellat quis quisquam eligendi natus quaerat
+          exercitationem, temporibus facere iusto facilis soluta. Facilis sed
+          veritatis adipisci alias aut aliquam odio reprehenderit harum
+          consectetur ducimus. Asperiores qui totam, perferendis debitis atque
+          modi. Asperiores, molestias earum voluptate maiores explicabo repellat
+          dolores expedita corrupti harum, quaerat veritatis a iure obcaecati
+          voluptatum aperiam vero itaque corporis, ab iusto! Corporis qui maxime
+          reiciendis libero vitae dolorum tempora! Unde voluptate pariatur
+          eveniet quia quo tempore?
+        </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

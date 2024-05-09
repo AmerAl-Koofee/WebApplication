@@ -1,0 +1,133 @@
+{% extends "base.html"%} 
+{% block title %} User {% endblock %} 
+{% block content %} 
+{% with messages = get_flashed_messages() %} 
+{% if messages %} 
+{% for message in messages %} 
+{{ message }} 
+{% endfor %} 
+{% endif %} 
+{% endwith %}
+
+<div class="container">
+  <div class="page">
+    <div class="page_modify_2">
+      <div class="info_for_user_page">
+        <h2>{{ user_info.name }}</h2>
+        <p>Email: {{ user_info.email }}</p>
+        <p>Phone: {{ user_info.phone }}</p>
+        <p>Age: {{ user_info.age }}</p>
+        <p>
+          Address: {{ user_info.street_name }}, 
+          {{ user_info.street_number }},
+          {{ user_info.postcode }}, 
+          {{ user_info.city }}, 
+          {{ user_info.state }},
+          {{ user_info.country }}
+        </p>
+      </div>
+      <div class="img_for_user_page">
+        {% for picture in user_info.pictures %} 
+        {% if loop.first %}
+        <img
+          src="{{ picture.picture }}"
+          alt="{{ user_info.name }}"
+          class="img-thumbnail"
+        />
+        {% endif %} 
+        {% endfor %}
+      </div>
+      <form
+        action="{{ url_for('user_page', user_id=user_info.id) }}"
+        method="POST"
+        class="form_for_user_page"
+      >
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Name"
+          class="name"
+          value="{{ user_info.name }}"
+          required
+        />
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Email"
+          class="email"
+          value="{{ user_info.email }}"
+          required
+        />
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          placeholder="Phone"
+          class="phone"
+          value="{{ user_info.phone }}"
+        />
+        <input
+          type="number"
+          id="age"
+          name="age"
+          placeholder="Age"
+          class="age"
+          value="{{ user_info.age }}"
+        />
+        <input
+          type="text"
+          id="street_name"
+          name="street_name"
+          placeholder="Street Name"
+          class="street_name"
+          value="{{ user_info.street_name }}"
+        />
+        <input
+          type="text"
+          id="street_number"
+          name="street_number"
+          placeholder="Street Number"
+          class="street_number"
+          value="{{ user_info.street_number }}"
+        />
+        <input
+          type="text"
+          id="postcode"
+          name="postcode"
+          placeholder="Postcode"
+          class="postcode"
+          value="{{ user_info.postcode }}"
+        />
+        <input
+          type="text"
+          id="city"
+          name="city"
+          placeholder="City"
+          class="city"
+          value="{{ user_info.city }}"
+        />
+        <input
+          type="text"
+          id="state"
+          name="state"
+          placeholder="State"
+          class="state"
+          value="{{ user_info.state }}"
+        />
+        <input
+          type="text"
+          id="country"
+          name="country"
+          placeholder="Country"
+          class="country"
+          value="{{ user_info.country }}"
+        />
+        <input type="submit" class="submit" />
+      </form>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
